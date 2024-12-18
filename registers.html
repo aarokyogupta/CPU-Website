@@ -1,0 +1,100 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Registers</title>
+</head>
+
+<body>
+    <div class="home navbar" id="navbar">
+        <a href="home.html">Home</a> 
+        <a href="agu.html">AGU</a>    
+        <a href="alu.html">ALU</a> 
+        <a href="buses.html">Buses</a>
+        <a href="cache.html">Cache</a>
+        <a href="clock.html">Clock</a>
+        <a href="controlBus.html">Control Bus</a>
+        <a href="controlUnit.html">Control Unit</a>
+        <a href="mmu.html">MMU</a>
+        <a href="registers.html" class="active">Registers</a>
+    </div>
+    <br>
+
+    <div class="content">
+        <h1 class="title"><u>Registers</u></h1>
+
+        <p class="text farBottom">Registers are small, fast memory storage locations within the CPU that 
+        hold data and instructions temporarily. They are used to store intermediate results, memory 
+        addresses, and other data that the CPU needs to access quickly. Registers are essential for the CPU's 
+        operation because they provide the fastest way to access data. There are several types of registers, 
+        each with a specific function:</p>
+
+        <p class="text list closeBottom"><strong>1. Accumulator (ACC):</strong> Used to store intermediate results of arithmetic and logic operations.</p>
+        <p class="text closeTop list closeBottom"><strong>2. Program Counter (PC):</strong> Holds the address of the next instruction to be executed.</p>
+        <p class="text closeTop list closeBottom"><strong>3. Instruction Register (IR):</strong> Contains the current instruction being executed.</p>
+        <p class="text closeTop list closeBottom"><strong>4. Memory Address Register (MAR):</strong> Holds the memory address of data that needs to be accessed.</p>
+        <p class="text closeTop list closeBottom"><strong>5. Memory Data Register (MDR):</strong> Contains the data that is being transferred to or from memory.</p>
+        <p class="text closeTop list closeBottom"><strong>6. Status Register (SR):</strong> Holds flags that indicate the status of the CPU, such as zero, carry, and overflow flags.</p>
+        <p class="text closeTop list farBottom"><strong>7. General-Purpose Registers:</strong> Used for general arithmetic and logic operations, and can be accessed by the programmer.</p>
+        <br>
+    </div>
+
+    <br><br>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        function handleNavigation(target) {
+            const currentActive = $('#navbar .active');
+            if (currentActive.length) {
+                currentActive.removeClass('active');
+            }
+            $(`#navbar a[href="${target}"]`).addClass('active');
+
+            setTimeout(function () {
+                window.location.href = target;
+            }, 300);
+        }
+
+        $('#navbar a').on('click', function (event) {
+            event.preventDefault();
+            const $this = $(this);
+            handleNavigation($this.attr('href'));
+        });
+
+        $(document).on('keydown', function (event) {
+            if (event.key === '1') {
+                handleNavigation('home.html');
+            } else if (event.key === '2') {
+                handleNavigation('agu.html');
+            } else if (event.key === '3') {
+                handleNavigation('alu.html');
+            } else if (event.key === '4') {
+                handleNavigation('buses.html');
+            } else if (event.key === '5') {
+                handleNavigation('cache.html');
+            } else if (event.key === '6') {
+                handleNavigation('clock.html');
+            } else if (event.key === '7') {
+                handleNavigation('controlBus.html');
+            } else if (event.key === '8') {
+                handleNavigation('controlUnit.html');
+            } else if (event.key === '9') {
+                handleNavigation('mmu.html');
+            } else if (event.key === '0') {
+                handleNavigation('registers.html');
+            }
+        });
+    });
+</script>
+
+<noscript>
+    Sorry, your browser does not support JavaScript!
+</noscript>
+
+</html>

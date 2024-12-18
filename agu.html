@@ -1,0 +1,91 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>AGU</title>
+</head>
+
+<body>
+    <div class="home navbar" id="navbar">
+        <a href="home.html">Home</a> 
+        <a href="agu.html" class="active">AGU</a>    
+        <a href="alu.html">ALU</a> 
+        <a href="buses.html">Buses</a>
+        <a href="cache.html">Cache</a>
+        <a href="clock.html">Clock</a>
+        <a href="controlBus.html">Control Bus</a>
+        <a href="controlUnit.html">Control Unit</a>
+        <a href="mmu.html">MMU</a>
+        <a href="registers.html">Registers</a>
+    </div>
+    <br>
+
+    <div class="content">
+        <h1 class="title"><u>Address Generation Unit (AGU)</u></h1>
+
+        <p class="text farBottom">The Address Generation Unit (AGU), also sometimes known as the address 
+        computation unit (ACU), is the part of the CPU that calculates memory addresses for data access. It 
+        is responsible for generating the memory addresses that is required to read data from or write data 
+        to the memory. The AGU works with the Memory Management Unit (MMU) to translate virtual addresses to 
+        physical addresses and ensure that the correct data is accessed from the memory.</p>
+    </div>
+
+    <br><br>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        function handleNavigation(target) {
+            const currentActive = $('#navbar .active');
+            if (currentActive.length) {
+                currentActive.removeClass('active');
+            }
+            $(`#navbar a[href="${target}"]`).addClass('active');
+
+            setTimeout(function () {
+                window.location.href = target;
+            }, 300);
+        }
+
+        $('#navbar a').on('click', function (event) {
+            event.preventDefault();
+            const $this = $(this);
+            handleNavigation($this.attr('href'));
+        });
+
+        $(document).on('keydown', function (event) {
+            if (event.key === '1') {
+                handleNavigation('home.html');
+            } else if (event.key === '2') {
+                handleNavigation('agu.html');
+            } else if (event.key === '3') {
+                handleNavigation('alu.html');
+            } else if (event.key === '4') {
+                handleNavigation('buses.html');
+            } else if (event.key === '5') {
+                handleNavigation('cache.html');
+            } else if (event.key === '6') {
+                handleNavigation('clock.html');
+            } else if (event.key === '7') {
+                handleNavigation('controlBus.html');
+            } else if (event.key === '8') {
+                handleNavigation('controlUnit.html');
+            } else if (event.key === '9') {
+                handleNavigation('mmu.html');
+            } else if (event.key === '0') {
+                handleNavigation('registers.html');
+            }
+        });
+    });
+</script>
+
+<noscript>
+    Sorry, your browser does not support JavaScript!
+</noscript>
+
+</html>

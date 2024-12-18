@@ -1,0 +1,93 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Control Unit</title>
+</head>
+
+<body>
+    <div class="home navbar" id="navbar">
+        <a href="home.html">Home</a> 
+        <a href="agu.html">AGU</a>    
+        <a href="alu.html">ALU</a> 
+        <a href="buses.html">Buses</a>
+        <a href="cache.html">Cache</a>
+        <a href="clock.html">Clock</a>
+        <a href="controlBus.html">Control Bus</a>
+        <a href="controlUnit.html" class="active">Control Unit</a>
+        <a href="mmu.html">MMU</a>
+        <a href="registers.html">Registers</a>
+    </div>
+    <br>
+
+    <div class="content">
+        <h1 class="title"><u>Control Unit</u></h1>
+
+        <p class="text farBottom">The control unit is a part of the CPU that is responsible for controlling 
+        the operations of the computer system. The control unit is responsible for fetching instructions 
+        from memory, decoding the instructions, and executing the instructions. The control unit works with 
+        the ALU to perform the operations specified by the instructions. The control unit is responsible for 
+        coordinating the operations of the CPU, memory, and other components of the computer system to ensure 
+        that they work together in an organisedmanner. It is an essential part of the computer system and is 
+        used to ensure that the different components of the system can communicate with each other.</p>
+    </div>
+
+    <br><br>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        function handleNavigation(target) {
+            const currentActive = $('#navbar .active');
+            if (currentActive.length) {
+                currentActive.removeClass('active');
+            }
+            $(`#navbar a[href="${target}"]`).addClass('active');
+
+            setTimeout(function () {
+                window.location.href = target;
+            }, 300);
+        }
+
+        $('#navbar a').on('click', function (event) {
+            event.preventDefault();
+            const $this = $(this);
+            handleNavigation($this.attr('href'));
+        });
+
+        $(document).on('keydown', function (event) {
+            if (event.key === '1') {
+                handleNavigation('home.html');
+            } else if (event.key === '2') {
+                handleNavigation('agu.html');
+            } else if (event.key === '3') {
+                handleNavigation('alu.html');
+            } else if (event.key === '4') {
+                handleNavigation('buses.html');
+            } else if (event.key === '5') {
+                handleNavigation('cache.html');
+            } else if (event.key === '6') {
+                handleNavigation('clock.html');
+            } else if (event.key === '7') {
+                handleNavigation('controlBus.html');
+            } else if (event.key === '8') {
+                handleNavigation('controlUnit.html');
+            } else if (event.key === '9') {
+                handleNavigation('mmu.html');
+            } else if (event.key === '0') {
+                handleNavigation('registers.html');
+            }
+        });
+    });
+</script>
+
+<noscript>
+    Sorry, your browser does not support JavaScript!
+</noscript>
+
+</html>

@@ -1,0 +1,95 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Cache</title>
+</head>
+
+<body>
+    <div class="home navbar" id="navbar">
+        <a href="home.html">Home</a> 
+        <a href="agu.html">AGU</a>    
+        <a href="alu.html">ALU</a> 
+        <a href="buses.html">Buses</a>
+        <a href="cache.html" class="active">Cache</a>
+        <a href="clock.html">Clock</a>
+        <a href="controlBus.html">Control Bus</a>
+        <a href="controlUnit.html">Control Unit</a>
+        <a href="mmu.html">MMU</a>
+        <a href="registers.html">Registers</a>
+    </div>
+    <br>
+
+    <div class="content">
+        <h1 class="title"><u>Cache</u></h1>
+
+        <p class="text farBottom">Cache memory is a small, but fast type of volatile memory used by the CPU 
+        to store frequently accessed data and instructions. It is faster than main memory (RAM) as it is in 
+        the CPU and is used to reduce the average time to access data from the main memory. The cache memory 
+        is located between the CPU and the main memory and is used to store copies of data and instructions 
+        that are frequently accessed by the CPU. When the CPU needs to access data, it first checks the cache 
+        memory to see if the data is already stored there. If the data is found in the cache memory, it is 
+        accessed quickly. If the data is not found in the cache memory, it is retrieved from the main memory 
+        and copied to the cache memory for future access. The cache memory is an essential part of the 
+        computer system and is used to improve the performance of the CPU.</p>
+    </div>
+
+    <br><br>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        function handleNavigation(target) {
+            const currentActive = $('#navbar .active');
+            if (currentActive.length) {
+                currentActive.removeClass('active');
+            }
+            $(`#navbar a[href="${target}"]`).addClass('active');
+
+            setTimeout(function () {
+                window.location.href = target;
+            }, 300);
+        }
+
+        $('#navbar a').on('click', function (event) {
+            event.preventDefault();
+            const $this = $(this);
+            handleNavigation($this.attr('href'));
+        });
+
+        $(document).on('keydown', function (event) {
+            if (event.key === '1') {
+                handleNavigation('home.html');
+            } else if (event.key === '2') {
+                handleNavigation('agu.html');
+            } else if (event.key === '3') {
+                handleNavigation('alu.html');
+            } else if (event.key === '4') {
+                handleNavigation('buses.html');
+            } else if (event.key === '5') {
+                handleNavigation('cache.html');
+            } else if (event.key === '6') {
+                handleNavigation('clock.html');
+            } else if (event.key === '7') {
+                handleNavigation('controlBus.html');
+            } else if (event.key === '8') {
+                handleNavigation('controlUnit.html');
+            } else if (event.key === '9') {
+                handleNavigation('mmu.html');
+            } else if (event.key === '0') {
+                handleNavigation('registers.html');
+            }
+        });
+    });
+</script>
+
+<noscript>
+    Sorry, your browser does not support JavaScript!
+</noscript>
+
+</html>

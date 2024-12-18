@@ -1,0 +1,151 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>CPU</title>
+</head>
+
+<body>
+    <div class="home navbar" id="navbar">
+        <a href="home.html" class="active">Home</a> 
+        <a href="agu.html">AGU</a>    
+        <a href="alu.html">ALU</a> 
+        <a href="buses.html">Buses</a>
+        <a href="cache.html">Cache</a>
+        <a href="clock.html">Clock</a>
+        <a href="controlBus.html">Control Bus</a>
+        <a href="controlUnit.html">Control Unit</a>
+        <a href="mmu.html">MMU</a>
+        <a href="registers.html">Registers</a>
+    </div>
+    <br>
+
+    <div class="content">
+        <h1 class="title"><u>What is a CPU?</u></h1>
+
+        <p class="text farBottom">A CPU (Central Processing Unit) is the most important part of a computer 
+        which performs most of the processing in a computer, which is why it is often the brain of the 
+        computer. It interprets and executes instructions from programs by performing arithmetic, logic, 
+        control, and input/output operations. The CPU consists of multiple cores, which allow it to handle 
+        multiple tasks simultaneously.</p>
+    </div>
+
+    <br>
+    
+    <div class="content">
+        <h1 class="title"><u>Components of a CPU</u></h1>
+
+        <p class="text">The CPU is made up of several components, each with a specific function:</p>
+        <br>
+        <p class="text list closeBottom"><a href="agu.html"><strong>Address Generation Unit (AGU):</strong> Calculates memory addresses for data access</a></p>
+        <p class="text closeTop list closeBottom"><a href="alu.html"><strong>Arithmetic Logic Unit (ALU):</strong> Performs arithmetic and logical operations on data</a></p>
+        <p class="text closeTop list closeBottom"><a href="buses.html"><strong>Buses:</strong> Connects the various components of the CPU and allow them to communicate with each other</a></p>
+        <p class="text closeTop list closeBottom"><a href="cache.html"><strong>Cache:</strong> High-speed memory that stores frequently accessed data and instructions</a></p>
+        <p class="text closeTop list closeBottom"><a href="clock.html"><strong>Clock:</strong> Synchronizes the operations of the CPU and other components of the computer</a></p>
+        <p class="text closeTop list closeBottom"><a href="controlBus.html"><strong>Control Bus:</strong> Transmits control signals between the CPU and other components of the computer</a></p>
+        <p class="text closeTop list closeBottom"><a href="controlUnit.html"><strong>Control Unit:</strong> Manages the execution of instructions and controls the flow of data within the CPU</a></p>
+        <p class="text closeTop list closeBottom"><a href="mmu.html"><strong>Memory Management Unit (MMU):</strong> Manages memory access and translation between virtual and physical addresses</a></p>
+        <p class="text closeTop list farBottom"><a href="registers.html"><strong>Registers:</strong> Small, fast storage locations within the CPU that hold data and instructions</a></p>
+      <br>
+    </div>
+
+    <br>
+
+    <div class="content">
+        <h1 class="title"><u>How Does a CPU Work?</u></h1>
+
+        <p class="text">Every CPU cycle, the CPU performs 3 steps:</p>
+        <br>
+        <p class="text list closeBottom">Fetch: The CPU fetches the next instruction from memory</p>
+        <p class="text closeTop list closeBottom">Decode: The CPU decodes the instruction to determine what operation needs to be performed</p>
+        <p class="text closeTop list farBottom">Execute: The CPU performs the operation specified by the instruction</p>
+        <br>
+    </div>
+
+    <br>
+
+    <div class="content">
+        <h1 class="title"><u>Structure</u></h1> 
+        <br>
+        <img src="structureOfCPU.png" alt="CPU Structure" class="cpuStructure">
+        <br>
+    </div>
+
+    <br><br>
+
+    <button id="goToTopBtn" title="Go to top">Top</button>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function handleNavigation(target) {
+            const currentActive = $('#navbar .active');
+            if (currentActive.length) {
+                currentActive.removeClass('active');
+            }
+            $(`#navbar a[href="${target}"]`).addClass('active');
+
+            setTimeout(function () {
+                window.location.href = target;
+            }, 300);
+        }
+
+        $('#navbar a').on('click', function (event) {
+            event.preventDefault();
+            const $this = $(this);
+            handleNavigation($this.attr('href'));
+        });
+
+        $(document).on('keydown', function (event) {
+            if (event.key === '1') {
+                handleNavigation('home.html');
+            } else if (event.key === '2') {
+                handleNavigation('agu.html');
+            } else if (event.key === '3') {
+                handleNavigation('alu.html');
+            } else if (event.key === '4') {
+                handleNavigation('buses.html');
+            } else if (event.key === '5') {
+                handleNavigation('cache.html');
+            } else if (event.key === '6') {
+                handleNavigation('clock.html');
+            } else if (event.key === '7') {
+                handleNavigation('controlBus.html');
+            } else if (event.key === '8') {
+                handleNavigation('controlUnit.html');
+            } else if (event.key === '9') {
+                handleNavigation('mmu.html');
+            } else if (event.key === '0') {
+                handleNavigation('registers.html');
+            }
+        });
+
+        $(window).scroll(function () {
+            const scrollTop = $(this).scrollTop();
+            if (scrollTop > 200) {
+                $('#goToTopBtn').fadeIn();
+            } else {
+                $('#goToTopBtn').fadeOut();
+            }
+
+            const maxScroll = $(document).height() - $(window).height();
+            const opacity = 0.3 + (scrollTop / maxScroll) * 0.5;
+            $('#goToTopBtn').css('opacity', opacity);
+        });
+
+        $('#goToTopBtn').click(function () {
+            $('html, body').animate({ scrollTop: 0 }, 600);
+            return false;
+        });
+    });
+</script>
+
+<noscript>
+    Sorry, your browser does not support JavaScript!
+</noscript>
+
+</html>
